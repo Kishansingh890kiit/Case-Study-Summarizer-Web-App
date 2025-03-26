@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study Summarizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Case Study Summarizer</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#" data-section="generator">Summary Generator</a></li>
+                    <li><a href="#" data-section="saved">Saved Summaries</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="active-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search case studies...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="filter-options">
+                <div class="category-filter">
+                    <span>Filter by category:</span>
+                    <select id="category-select">
+                        <option value="all">All Categories</option>
+                        <option value="business">Business</option>
+                        <option value="tech">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="case-grid">
+                <!-- Case study cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Summary Generator Section -->
+        <section id="generator">
+            <div class="generator-container">
+                <div class="input-section">
+                    <h2>Paste Your Case Study</h2>
+                    <textarea id="case-study-input" placeholder="Paste your long case study here..."></textarea>
+                    <div class="controls">
+                        <div class="slider-container">
+                            <label for="summary-length">Summary Length:</label>
+                            <input type="range" id="summary-length" min="1" max="10" value="5">
+                            <span id="length-value">Medium</span>
+                        </div>
+                        <button id="generate-btn">Generate Summary</button>
+                    </div>
+                </div>
+                
+                <div class="output-section">
+                    <h2>Summary Result</h2>
+                    <div class="summary-output" id="summary-output">
+                        <p class="placeholder">Your generated summary will appear here...</p>
+                    </div>
+                    <div class="output-actions">
+                        <button id="download-txt">Download as TXT</button>
+                        <button id="download-pdf">Download as PDF</button>
+                        <button id="save-summary">Save Summary</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="breakdown-section">
+                <h2>Step-by-Step Breakdown</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Problem Statement</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content" id="problem-content"></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Solution Approach</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content" id="solution-content"></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Key Results</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content" id="results-content"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">0% read</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Saved Summaries Section -->
+        <section id="saved">
+            <h2>Your Saved Summaries</h2>
+            <div class="saved-summaries-grid">
+                <!-- Saved summaries will appear here -->
+                <div class="empty-state">
+                    <i class="fas fa-bookmark"></i>
+                    <p>You haven't saved any summaries yet.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Case Study Summarizer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
